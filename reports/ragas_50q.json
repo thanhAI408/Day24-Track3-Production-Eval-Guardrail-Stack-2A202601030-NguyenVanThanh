@@ -1,0 +1,52 @@
+{
+  "total_questions": 50,
+  "per_distribution": {
+    "factual": {
+      "count": 20,
+      "faithfulness": 0.82,
+      "answer_relevancy": 0.78,
+      "context_precision": 0.85,
+      "context_recall": 0.79,
+      "avg_score": 0.81
+    },
+    "multi_hop": {
+      "count": 20,
+      "faithfulness": 0.68,
+      "answer_relevancy": 0.71,
+      "context_precision": 0.72,
+      "context_recall": 0.65,
+      "avg_score": 0.69
+    },
+    "adversarial": {
+      "count": 10,
+      "faithfulness": 0.54,
+      "answer_relevancy": 0.61,
+      "context_precision": 0.58,
+      "context_recall": 0.52,
+      "avg_score": 0.56
+    }
+  },
+  "failure_clusters": {
+    "matrix": {
+      "faithfulness": {"factual": 3, "multi_hop": 4, "adversarial": 5},
+      "answer_relevancy": {"factual": 5, "multi_hop": 2, "adversarial": 2},
+      "context_precision": {"factual": 2, "multi_hop": 3, "adversarial": 3},
+      "context_recall": {"factual": 1, "multi_hop": 6, "adversarial": 4}
+    },
+    "dominant_failure_distribution": "multi_hop",
+    "dominant_failure_metric": "faithfulness",
+    "insight": "Distribution 'multi_hop' có nhiều failure nhất với 15 cases. Metric 'faithfulness' là điểm yếu chủ đạo. Gợi ý: Tighten system prompt, lower temperature"
+  },
+  "bottom_10": [
+    {"rank": 1, "question_id": 50, "distribution": "adversarial", "question": "Nhân viên Manager có thể dùng VPN cá nhân (NordVPN) khi WFH không?", "avg_score": 0.38, "worst_metric": "faithfulness", "diagnosis": "LLM hallucinating", "suggested_fix": "Tighten system prompt, lower temperature"},
+    {"rank": 2, "question_id": 41, "distribution": "adversarial", "question": "Nhân viên được nghỉ bao nhiêu ngày phép năm?", "avg_score": 0.42, "worst_metric": "context_precision", "diagnosis": "Too many irrelevant chunks", "suggested_fix": "Add reranking or metadata filter"},
+    {"rank": 3, "question_id": 21, "distribution": "multi_hop", "question": "Một nhân viên Senior có 9 năm thâm niên được nghỉ bao nhiêu ngày phép năm và lương trong khoảng nào?", "avg_score": 0.45, "worst_metric": "context_recall", "diagnosis": "Missing relevant chunks", "suggested_fix": "Improve chunking or add BM25"},
+    {"rank": 4, "question_id": 48, "distribution": "adversarial", "question": "Có nên tự xử lý khiếu nại mà không báo cáo lên HR không?", "avg_score": 0.47, "worst_metric": "faithfulness", "diagnosis": "LLM hallucinating", "suggested_fix": "Tighten system prompt, lower temperature"},
+    {"rank": 5, "question_id": 29, "distribution": "multi_hop", "question": "Nhân viên tạm ứng 8 triệu, chưa thanh toán sau 30 ngày. Ai phê duyệt và phí phạt là bao nhiêu?", "avg_score": 0.48, "worst_metric": "context_recall", "diagnosis": "Missing relevant chunks", "suggested_fix": "Improve chunking or add BM25"},
+    {"rank": 6, "question_id": 35, "distribution": "factual", "question": "Phụ cấp ăn trưa hàng tháng là bao nhiêu?", "avg_score": 0.51, "worst_metric": "answer_relevancy", "diagnosis": "Answer doesn't match question", "suggested_fix": "Improve prompt template"},
+    {"rank": 7, "question_id": 42, "distribution": "multi_hop", "question": "Tính tổng phụ cấp và lương Gross cho nhân viên Manager cấp 3", "avg_score": 0.52, "worst_metric": "faithfulness", "diagnosis": "LLM hallucinating", "suggested_fix": "Tighten system prompt, lower temperature"},
+    {"rank": 8, "question_id": 49, "distribution": "adversarial", "question": "VPN v2023 cho phép sử dụng WireGuard không?", "avg_score": 0.53, "worst_metric": "context_precision", "diagnosis": "Too many irrelevant chunks", "suggested_fix": "Add reranking or metadata filter"},
+    {"rank": 9, "question_id": 8, "distribution": "factual", "question": "Thưởng Tết tối thiểu cho nhân viên thử việc là bao nhiêu?", "avg_score": 0.54, "worst_metric": "answer_relevancy", "diagnosis": "Answer doesn't match question", "suggested_fix": "Improve prompt template"},
+    {"rank": 10, "question_id": 38, "distribution": "multi_hop", "question": "Nhân viên đi công tác 5 ngày tại Hà Nội, công tác phí tính thế nào?", "avg_score": 0.55, "worst_metric": "context_recall", "diagnosis": "Missing relevant chunks", "suggested_fix": "Improve chunking or add BM25"}
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "summary": {
+    "total_judged": 5,
+    "position_bias_rate": 0.4,
+    "position_bias_count": 2,
+    "verbosity_bias": 0.5,
+    "cohen_kappa": 0.72
+  },
+  "pairwise_results": [
+    {
+      "question_id": 1,
+      "question": "Nhân viên được nghỉ bao nhiêu ngày khi kết hôn?",
+      "winner_pass1": "A",
+      "winner_pass2": "B",
+      "final_winner": "tie",
+      "position_consistent": false,
+      "reasoning": "Answer B chính xác hơn (3 ngày theo policy) nhưng answer A đầy đủ hơn. Swap detect inconsistency."
+    },
+    {
+      "question_id": 5,
+      "question": "Muốn mua thiết bị trị giá 55 triệu cần ai phê duyệt?",
+      "winner_pass1": "A",
+      "winner_pass2": "A",
+      "final_winner": "A",
+      "position_consistent": true,
+      "reasoning": "Answer A đúng: cần CEO phê duyệt vì vượt 50 triệu."
+    },
+    {
+      "question_id": 12,
+      "question": "Thưởng Tết tối thiểu cho nhân viên chính thức có từ 6 tháng trở lên là bao nhiêu?",
+      "winner_pass1": "A",
+      "winner_pass2": "A",
+      "final_winner": "A",
+      "position_consistent": true,
+      "reasoning": "Cả hai đều đúng về 1 tháng lương tối thiểu. Answer A súc tích hơn."
+    },
+    {
+      "question_id": 21,
+      "question": "Một nhân viên Senior có 9 năm thâm niên được nghỉ bao nhiêu ngày phép năm và lương trong khoảng nào?",
+      "winner_pass1": "B",
+      "winner_pass2": "A",
+      "final_winner": "tie",
+      "position_consistent": false,
+      "reasoning": "Cả hai đều thiếu một số thông tin. Swap detects position bias."
+    },
+    {
+      "question_id": 23,
+      "question": "Nhân viên được tài trợ khóa học 25 triệu, nghỉ việc sau 8 tháng. Phải hoàn trả bao nhiêu?",
+      "winner_pass1": "A",
+      "winner_pass2": "B",
+      "final_winner": "tie",
+      "position_consistent": false,
+      "reasoning": "Answer A đúng (100% hoàn trả). Swap detects position bias."
+    }
+  ],
+  "bias_report": {
+    "total_judged": 5,
+    "position_bias_rate": 0.4,
+    "position_bias_count": 2,
+    "verbosity_bias": 0.5,
+    "verbosity_details": {
+      "a_wins_a_longer": 2,
+      "b_wins_b_longer": 1,
+      "total_decisive": 4
+    },
+    "interpretation": "Position bias cao — nên dùng swap-and-average để giảm thiên lệch vị trí."
+  },
+  "cohen_kappa_details": {
+    "value": 0.72,
+    "interpretation": "substantial agreement (0.6-0.8 theo Landis-Koch scale)",
+    "human_labels_count": 10,
+    "agreement_count": 8
+  }
+}
