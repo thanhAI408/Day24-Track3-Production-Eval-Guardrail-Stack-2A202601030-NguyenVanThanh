@@ -1,6 +1,6 @@
 # CI/CD Blueprint: RAG Eval + Guardrail Stack
 
-**Sinh viên:** Nguyen Van Thanh
+**Sinh viên:** Nguyễn Văn Thành  2A202601030
 **Ngày:** 2026-08-26
 
 ---
